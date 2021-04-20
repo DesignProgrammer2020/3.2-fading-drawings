@@ -12,7 +12,7 @@ function setup() {
 
 function draw() {
   //background with random shades of aqua-blue
-  //background(100, 150, 255, 5);
+  background(100, 150, 255, 5);
 
   if (mouseIsPressed){
     backgroundColor -= 5;
@@ -48,7 +48,7 @@ function drawGrid() {
   numCells = 20;
   fillColor = 255;
   noStroke();
-  
+
   for (i = 0; i <= width; i += width/numCells) {
     for (j = 0; j <= width; j += height/numCells) {
       if (fillColor === 255){
