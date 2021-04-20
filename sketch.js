@@ -1,28 +1,66 @@
 let array = [];
 let strokeWidth = 0;
 let noiseOffset = 0;
+let backgroundColor = 200;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background(50, 100, 255);
+  createCanvas(600, 600);
+  drawGrid();
+  strokeWeight(5);
+  noFill();
 }
 
 function draw() {
   //background with random shades of aqua-blue
-  background(100, 150, 255, 5);
-  
+  //background(100, 150, 255, 5);
+
   if (mouseIsPressed){
+    backgroundColor -= 5;
+    background(backgroundColor);
 
     //vary the stroke width
     stroke(random(0, 255));
     strokeWeight(strokeWidth);
     noiseOffset += 0.05;
     strokeWidth = noise(noiseOffset)*25;
-    
+
     array.push([mouseX, mouseY]);
-    
+
     drawAnimal();
+  } else if (key === 'd') {
+    background(255);
+
+    beginShape();
+    for (let i = 0; i < array.length; i++) {
+      curveVertex(array[i][0], array[i][1]);
+    }
+    endShape();
   }
+  return false;
+}
+
+function mousePressed() {
+  array = [];
+  backgroundColor = 255;
+}
+
+function drawGrid() {
+  numCells = 20;
+  fillColor = 255;
+  noStroke();
+  
+  for (i = 0; i <= width; i += width/numCells) {
+    for (j = 0; j <= width; j += height/numCells) {
+      if (fillColor === 255){
+        fillColor = 200;
+      } else {
+        fillColor = 255;
+      }
+      fill(fillColor);
+      rect(i, j, width/numCells, height/numCells);
+    }
+  }
+
 }
 
 function drawAnimal() {
