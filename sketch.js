@@ -4,8 +4,7 @@ let noiseOffset = 0;
 let backgroundColor = 200;
 
 function setup() {
-  createCanvas(600, 600);
-  drawGrid();
+  createCanvas(windowWidth, windowHeight);
   strokeWeight(5);
   noFill();
 }
@@ -42,25 +41,6 @@ function draw() {
 function mousePressed() {
   array = [];
   backgroundColor = 255;
-}
-
-function drawGrid() {
-  numCells = 20;
-  fillColor = 255;
-  noStroke();
-
-  for (i = 0; i <= width; i += width/numCells) {
-    for (j = 0; j <= width; j += height/numCells) {
-      if (fillColor === 255){
-        fillColor = 200;
-      } else {
-        fillColor = 255;
-      }
-      fill(fillColor);
-      rect(i, j, width/numCells, height/numCells);
-    }
-  }
-
 }
 
 function drawAnimal() {
