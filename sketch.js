@@ -1,12 +1,12 @@
 let array = [];
 let strokeWidth = 0;
 let noiseOffset = 0;
-let backgroundColor = 200;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   strokeWeight(5);
   noFill();
+  background(50, 100, 255);
 }
 
 function draw() {
@@ -14,9 +14,6 @@ function draw() {
   background(100, 150, 255, 5);
 
   if (mouseIsPressed){
-    backgroundColor -= 5;
-    background(backgroundColor);
-
     //vary the stroke width
     stroke(random(0, 255));
     strokeWeight(strokeWidth);
@@ -40,7 +37,7 @@ function draw() {
 
 function mousePressed() {
   array = [];
-  backgroundColor = 255;
+  background(50, 100, 255);
 }
 
 function drawAnimal() {
